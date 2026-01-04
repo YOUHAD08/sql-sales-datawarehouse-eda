@@ -1,4 +1,24 @@
+/*
+===============================================================================
+Measures Exploration
+===============================================================================
+Purpose:
+    - To calculate and explore key business measures and KPIs
+    - To analyze quantitative metrics across sales, products, and customers
+    - To generate consolidated business performance reports
 
+SQL Functions Used:
+    - SUM
+    - COUNT / COUNT DISTINCT
+    - AVG
+    - UNION ALL
+
+Tables Used:
+    - gold.fact_sales
+    - gold.dim_products
+    - gold.dim_customers
+===============================================================================
+*/
 
 -- Find the Total Sales
 SELECT SUM(sales_amount) AS total_sales FROM gold.fact_sales
