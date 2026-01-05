@@ -10,6 +10,21 @@ LEFT JOIN gold.dim_products p
 GROUP BY p.product_name
 ORDER BY total_revenue DESC;
 
+-- Ranking Using Window Functions
+
+SELECT *
+FROM (
+    SELECT
+        p.product_name,
+        SUM(f.sales_amount) AS total_revenue,
+        DENSE_RANK() OVER (ORDER BY SUM(f.sales_amount) DESC) AS rank_products
+    FROM gold.fact_sales f
+    LEFT JOIN gold.dim_products p
+        ON p.product_key = f.product_key
+    GROUP BY p.product_name
+) AS ranked_products
+WHERE rank_products <= 5;
+
 -- Top 5 Worst-Performing Products in Terms of Sales
 
 SELECT TOP (5)
