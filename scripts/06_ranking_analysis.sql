@@ -1,4 +1,33 @@
 USE DataWarehouse
+/*
+===============================================================================
+Ranking Analysis
+===============================================================================
+Purpose:
+    - To identify top and bottom performers across multiple business dimensions
+    - To rank products, customers, countries, and categories by key metrics
+    - To compare ranking approaches: TOP clause vs Window Functions
+    - To support strategic decision-making through performance insights
+
+SQL Functions Used:
+    - TOP
+    - DENSE_RANK() OVER()
+    - COUNT / SUM
+    - GROUP BY
+    - LEFT JOIN
+    - Subqueries
+
+Metrics Analyzed:
+    - Revenue (total sales amount)
+    - Quantity sold
+    - Order frequency
+
+Tables Used:
+    - gold.fact_sales
+    - gold.dim_products
+    - gold.dim_customers
+===============================================================================
+*/
 
 -- Top 5 Products Generating the Highest Revenue
 SELECT TOP 5
