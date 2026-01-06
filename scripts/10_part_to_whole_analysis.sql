@@ -1,5 +1,32 @@
 USE DataWarehouse
 GO
+/*
+===============================================================================
+Category Sales Distribution Analysis
+===============================================================================
+Purpose:
+    - Calculate total sales contribution by product category
+    - Determine each category's percentage share of overall sales
+    - Identify dominant and underperforming categories
+    - Support category management and resource allocation decisions
+
+SQL Functions Used:
+    - CTEs (Common Table Expressions)
+    - Window Functions: SUM() OVER()
+    - CAST(), ROUND(), CONCAT()
+    - Percentage calculations
+    - LEFT JOIN, GROUP BY
+
+Metrics Analyzed:
+    - Total sales per category
+    - Overall company sales
+    - Category contribution percentage
+
+Tables Used:
+    - gold.fact_sales
+    - gold.dim_products
+===============================================================================
+*/
 
 WITH category_sales AS (
     SELECT
