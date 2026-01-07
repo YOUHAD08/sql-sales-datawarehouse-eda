@@ -1,6 +1,16 @@
 USE DataWarehouse
 GO
 
+
+-- =============================================================================
+-- Create Report: gold.report_customers
+-- =============================================================================
+IF OBJECT_ID('gold.report_customers', 'V') IS NOT NULL
+    DROP VIEW gold.report_customers;
+GO
+
+-- Create the view
+CREATE VIEW gold.report_customers AS
 /*---------------------------------------------------------------------------
 1) Base Query: Retrieves core columns from tables
 ---------------------------------------------------------------------------*/
@@ -80,5 +90,4 @@ SELECT
         WHEN lifespan = 0 THEN total_sales
         ELSE ROUND(total_sales / lifespan, 2)
     END AS avg_monthly_spend
-FROM customer_aggregation
-ORDER BY total_sales DESC;
+FROM customer_aggregation;
