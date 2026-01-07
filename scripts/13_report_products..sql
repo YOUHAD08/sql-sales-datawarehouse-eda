@@ -1,3 +1,31 @@
+
+/*
+===============================================================================
+Product Analytics Report View
+===============================================================================
+Purpose:
+    - Reusable analytical view for product performance intelligence
+    - Consolidates product metrics, sales behavior, and lifecycle analysis
+    - Supports inventory management and product strategy decisions
+
+Metrics Included:
+    - Sales: total revenue, quantity sold, orders, customers
+    - Pricing: cost, average selling price, average order revenue
+    - Lifecycle: product lifespan, last sale date, recency (months)
+    - Segmentation: performance tiers (High/Mid/Low Performer)
+
+SQL Functions Used:
+    - CTEs, DATEDIFF(), GETDATE(), NULLIF()
+    - Aggregates: COUNT, SUM, AVG, MIN, MAX, ROUND()
+    - CASE statements for segmentation
+    - CAST for type conversion
+
+Tables Referenced:
+    - gold.fact_sales
+    - gold.dim_products
+===============================================================================
+*/
+
 -- =============================================================================
 -- Create Report: gold.report_products
 -- =============================================================================
